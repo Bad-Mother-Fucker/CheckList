@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        DataManager.shared.deleteCollections()
+
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurView.frame = UINavigationBar.appearance().frame
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        // Sets background to a blank/empty image
+
+
+        UINavigationBar.appearance().addSubview(blurView)
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().alpha = 0.3
+        UINavigationBar.appearance().sendSubviewToBack(blurView)
+        UINavigationBar.appearance().isTranslucent = true
+
         return true
     }
 
@@ -89,5 +103,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension UIViewController {
+    func adjustLargeTitleSize() {
+        guard let title = title, #available(iOS 11.0, *) else { return }
+
+        let maxWidth = UIScreen.main.bounds.size.width - 60
+        var fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
+        var width = title.size(withAttributes: [.font: UIFont.systemFont(ofSize: fontSize)]).width
+
+        if width < maxWidth {
+            return
+        }
+        
+        while width > maxWidth {
+            fontSize -= 1
+            width = title.size(withAttributes: [.font: UIFont.systemFont(ofSize: fontSize)]).width
+        }
+
+
+        navigationController?.navigationBar.largeTitleTextAttributes =
+            [.font: UIFont.boldSystemFont(ofSize: fontSize)]
+    }
 }
 

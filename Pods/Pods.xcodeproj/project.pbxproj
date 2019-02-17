@@ -1,0 +1,984 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08CFBCB199BCBCE94FAADD25E761FE00 /* Pods-CheckList2UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9274ADD82E9305F02732EBBB98F67A92 /* Pods-CheckList2UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EBE575722F971035247E9135F3578B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		268F2FA6379DE8F877BF3EBE445EC4B4 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9400FB4146006FF914CAB6C05182E /* UIViewExtensions.swift */; };
+		39FF3602054AC8A706A9EE9BDAA8971A /* GTProgressBarLabelPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981F762E64C3A904B1A257F3FE62A8D5 /* GTProgressBarLabelPosition.swift */; };
+		46876237653B4B73FC48687C6221F803 /* Pods-CheckList2Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 957B7468464935B94568F198A2547993 /* Pods-CheckList2Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5931AE7D41EEAD3145A6A430EB15DC44 /* Pods-CheckList2UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E32F0EA6CE6A1866C047FCBD48EC373 /* Pods-CheckList2UITests-dummy.m */; };
+		65CF01894AF5A2481E476B9672CA62F1 /* GTProgressBarCornerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7BDAB42D36D6973AAB6E4538C92CD1 /* GTProgressBarCornerType.swift */; };
+		6F096C206B2E95FBB30FDADEE39EF6B2 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D441140F4BAE78584310B8B35148DB /* UILabelExtensions.swift */; };
+		7569E5CC8EBE3482CB28FA91307E642E /* HorizontalLabelPositionFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFABD5D070F9B6AB0D6E1B19D674901 /* HorizontalLabelPositionFrameCalculator.swift */; };
+		882790D0899C675C46601AB51899EDA7 /* GTProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69954A3C72D8374F8139972A9EE5936B /* GTProgressBar-dummy.m */; };
+		8E7C1613C56E2CB0698BA3A06B8D0D20 /* GTProgressBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 019074A0BD323B06E61370ED2169DE91 /* GTProgressBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C27330853092A1C46325C03AABFE5889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		C2FA5DD85AE43995BD3CAC318689B4E9 /* GTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BB8A30679C9183122F153CA96790 /* GTProgressBar.swift */; };
+		CA54FB42C8DB4BC43A63F868DD80D1F6 /* Pods-CheckList2Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B14AC6556961786DDD41E2A202D9CD /* Pods-CheckList2Tests-dummy.m */; };
+		E23765A53617AE195D3A8E36FDFEA9F1 /* Pods-CheckList2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA2F1F2A7F1396B9176CDDCF6BD132 /* Pods-CheckList2-dummy.m */; };
+		F55451E3CBFC1308D64A0D82A9DF2633 /* GTProgressBarOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBE26EB8D337B1AD07D89459DF9DD6F /* GTProgressBarOrientation.swift */; };
+		F5752C3AAA62815D8C46D16DAA2FEC8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		F8B170877A4350AEA9424C03675DFF0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		FAF3FA9ACDA4AFC27EC898BACC0765D4 /* VerticalLabelPositionFrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530261B7605845CD51D7CA60411B6E /* VerticalLabelPositionFrameCalculator.swift */; };
+		FBD9F1C7EB42361AB7788409512B3226 /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D26444F7D72F356C3FD8D9792D9E5E /* FrameCalculator.swift */; };
+		FBE0B0622EAFB75E37320C88E3648B9E /* GTProgressBarDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1450AF2CCFC0B222077ABA68E2262 /* GTProgressBarDirection.swift */; };
+		FF3B163AD7726C4EE3029B13FC820029 /* Pods-CheckList2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67AF8BC9ADD6118148D787BAE7539EFE /* Pods-CheckList2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76F8FCE48CE7293F92581142BE1A9169 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9E8D55EFA18EE035331AF23B4326BD;
+			remoteInfo = "Pods-CheckList2";
+		};
+		7E761E533912D0ADC49F498D1EDF3023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AFEE86C6DBFF52DCED4DD0E72ECE2D6;
+			remoteInfo = GTProgressBar;
+		};
+		822B3DD59C1ED13062548E7D2055AB15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9E8D55EFA18EE035331AF23B4326BD;
+			remoteInfo = "Pods-CheckList2";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		019074A0BD323B06E61370ED2169DE91 /* GTProgressBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTProgressBar-umbrella.h"; sourceTree = "<group>"; };
+		0B50652EBE79E602DE280DBE59627186 /* Pods-CheckList2UITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2UITests-resources.sh"; sourceTree = "<group>"; };
+		0FBA2F1F2A7F1396B9176CDDCF6BD132 /* Pods-CheckList2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CheckList2-dummy.m"; sourceTree = "<group>"; };
+		1B1F88D5A728E247035F2146ED6E880A /* Pods_CheckList2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckList2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D349AC241A840F10DC5E2EC365E549A /* GTProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTProgressBar.xcconfig; sourceTree = "<group>"; };
+		1E6410CB33282444318ADEE7531C8264 /* Pods-CheckList2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2.release.xcconfig"; sourceTree = "<group>"; };
+		20B14AC6556961786DDD41E2A202D9CD /* Pods-CheckList2Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CheckList2Tests-dummy.m"; sourceTree = "<group>"; };
+		2403605B9E1D5AD3B2D4E1D63ACC2F69 /* Pods-CheckList2-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2-resources.sh"; sourceTree = "<group>"; };
+		26C1450AF2CCFC0B222077ABA68E2262 /* GTProgressBarDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBarDirection.swift; path = GTProgressBar/Classes/GTProgressBarDirection.swift; sourceTree = "<group>"; };
+		2E7A3A2CF8266F417FE15B936CA03F41 /* Pods-CheckList2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		33983D2142DDD51DA6F97D811096B5FC /* Pods-CheckList2UITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CheckList2UITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3B024A037EA91D1D78345B5AD2DB4C96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D4E7C0825347F8ED1D3296247ABBF69 /* GTProgressBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GTProgressBar.modulemap; sourceTree = "<group>"; };
+		442339BF4E06F142022CC97AA895EE8D /* Pods-CheckList2Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2Tests-frameworks.sh"; sourceTree = "<group>"; };
+		47B79F6DF84D00A621FCB1CDFEECB9D5 /* Pods_CheckList2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckList2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F774182F1CEB4A7BA09748D0BAE393A /* Pods-CheckList2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CheckList2-acknowledgements.plist"; sourceTree = "<group>"; };
+		52BCCC8063EAA6DCC90F91EE95F12B8C /* Pods-CheckList2UITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CheckList2UITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		53D31D9E8B8190701250D0DCC56A3769 /* Pods-CheckList2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CheckList2.modulemap"; sourceTree = "<group>"; };
+		5C28544D1AF059452DB047297907F509 /* Pods-CheckList2Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CheckList2Tests.modulemap"; sourceTree = "<group>"; };
+		5DBFB2B6D1391A5C55267B3C58588159 /* Pods-CheckList2Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2Tests-resources.sh"; sourceTree = "<group>"; };
+		648259B1FB1BC54242B720CFFDAB55FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66F03435C97438CFFA9335E5E9E0F468 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67AF8BC9ADD6118148D787BAE7539EFE /* Pods-CheckList2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CheckList2-umbrella.h"; sourceTree = "<group>"; };
+		69702860F51BFDC9E0BF0336887B700D /* Pods-CheckList2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		69954A3C72D8374F8139972A9EE5936B /* GTProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTProgressBar-dummy.m"; sourceTree = "<group>"; };
+		6C70C62602575C50544AA3FCF2A9C765 /* Pods_CheckList2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckList2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB9400FB4146006FF914CAB6C05182E /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = GTProgressBar/Classes/UIViewExtensions.swift; sourceTree = "<group>"; };
+		79D26444F7D72F356C3FD8D9792D9E5E /* FrameCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameCalculator.swift; path = GTProgressBar/Classes/FrameCalculator.swift; sourceTree = "<group>"; };
+		7D10B0A132D5549A671F0A10264E082D /* Pods-CheckList2Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CheckList2Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7D408CB63FF20FE8CDFEA03522FA9112 /* Pods-CheckList2Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CheckList2Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7E32F0EA6CE6A1866C047FCBD48EC373 /* Pods-CheckList2UITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CheckList2UITests-dummy.m"; sourceTree = "<group>"; };
+		801610C710A5DD36E6E68BB0FF4CE991 /* Pods-CheckList2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2-frameworks.sh"; sourceTree = "<group>"; };
+		83586E298DDE658C8B14467B277CF4B8 /* GTProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8707A5A767EC3BF7F60110E43699F3A5 /* Pods-CheckList2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8FFABD5D070F9B6AB0D6E1B19D674901 /* HorizontalLabelPositionFrameCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalLabelPositionFrameCalculator.swift; path = GTProgressBar/Classes/HorizontalLabelPositionFrameCalculator.swift; sourceTree = "<group>"; };
+		9274ADD82E9305F02732EBBB98F67A92 /* Pods-CheckList2UITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CheckList2UITests-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		957B7468464935B94568F198A2547993 /* Pods-CheckList2Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CheckList2Tests-umbrella.h"; sourceTree = "<group>"; };
+		981F762E64C3A904B1A257F3FE62A8D5 /* GTProgressBarLabelPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBarLabelPosition.swift; path = GTProgressBar/Classes/GTProgressBarLabelPosition.swift; sourceTree = "<group>"; };
+		98530261B7605845CD51D7CA60411B6E /* VerticalLabelPositionFrameCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalLabelPositionFrameCalculator.swift; path = GTProgressBar/Classes/VerticalLabelPositionFrameCalculator.swift; sourceTree = "<group>"; };
+		B181BB8A30679C9183122F153CA96790 /* GTProgressBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBar.swift; path = GTProgressBar/Classes/GTProgressBar.swift; sourceTree = "<group>"; };
+		B1D441140F4BAE78584310B8B35148DB /* UILabelExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UILabelExtensions.swift; path = GTProgressBar/Classes/UILabelExtensions.swift; sourceTree = "<group>"; };
+		B5DB66411F6E1448663C4F855E41B2B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D50CEAB711711BF2BB2B5BD7D0018B /* Pods-CheckList2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CheckList2-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DCA4B8A811F9612BFAE94DD2D490AEFF /* Pods-CheckList2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		DCBE26EB8D337B1AD07D89459DF9DD6F /* GTProgressBarOrientation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBarOrientation.swift; path = GTProgressBar/Classes/GTProgressBarOrientation.swift; sourceTree = "<group>"; };
+		E095C9B09BCEAB8F8FF035194F6BD721 /* Pods-CheckList2UITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CheckList2UITests.modulemap"; sourceTree = "<group>"; };
+		E9DBF86381A4D1B77A64039A8909CF9C /* Pods-CheckList2UITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CheckList2UITests-frameworks.sh"; sourceTree = "<group>"; };
+		EC7BDAB42D36D6973AAB6E4538C92CD1 /* GTProgressBarCornerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GTProgressBarCornerType.swift; path = GTProgressBar/Classes/GTProgressBarCornerType.swift; sourceTree = "<group>"; };
+		F164F489C727D017D0E7D9C909222F4E /* Pods-CheckList2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CheckList2.debug.xcconfig"; sourceTree = "<group>"; };
+		FD1C35BE1FE7DCD46185FF601CCD2723 /* GTProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTProgressBar-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2286792E871CECAC6AF0121438AD18AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5752C3AAA62815D8C46D16DAA2FEC8E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61E988EF6FA644B3EEC67D8A3EDC2844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8B170877A4350AEA9424C03675DFF0B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4EF7AD4C09941EA3FD351505ADDC0C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EBE575722F971035247E9135F3578B9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A90E742192F8FFA5420DACCF7AA8D4F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27330853092A1C46325C03AABFE5889 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033E9400D61D85A47DF45ACBAF63C19E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90155681969618CF8097128129AA0275 /* Pods-CheckList2 */,
+				9FE2A2B59BFBAA5490DD95EC74298034 /* Pods-CheckList2Tests */,
+				E5EA66E2ADF1B0CDC043AA23C1684FFC /* Pods-CheckList2UITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		1968BDCAC3C98BDFD30A15DE745DF0AF /* GTProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				79D26444F7D72F356C3FD8D9792D9E5E /* FrameCalculator.swift */,
+				B181BB8A30679C9183122F153CA96790 /* GTProgressBar.swift */,
+				EC7BDAB42D36D6973AAB6E4538C92CD1 /* GTProgressBarCornerType.swift */,
+				26C1450AF2CCFC0B222077ABA68E2262 /* GTProgressBarDirection.swift */,
+				981F762E64C3A904B1A257F3FE62A8D5 /* GTProgressBarLabelPosition.swift */,
+				DCBE26EB8D337B1AD07D89459DF9DD6F /* GTProgressBarOrientation.swift */,
+				8FFABD5D070F9B6AB0D6E1B19D674901 /* HorizontalLabelPositionFrameCalculator.swift */,
+				B1D441140F4BAE78584310B8B35148DB /* UILabelExtensions.swift */,
+				6EB9400FB4146006FF914CAB6C05182E /* UIViewExtensions.swift */,
+				98530261B7605845CD51D7CA60411B6E /* VerticalLabelPositionFrameCalculator.swift */,
+				8B8990E861D16E46B3C978EB3F6B8634 /* Support Files */,
+			);
+			path = GTProgressBar;
+			sourceTree = "<group>";
+		};
+		25AAFC94FFD0FD8BDDD28682D7A50D17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83586E298DDE658C8B14467B277CF4B8 /* GTProgressBar.framework */,
+				47B79F6DF84D00A621FCB1CDFEECB9D5 /* Pods_CheckList2.framework */,
+				1B1F88D5A728E247035F2146ED6E880A /* Pods_CheckList2Tests.framework */,
+				6C70C62602575C50544AA3FCF2A9C765 /* Pods_CheckList2UITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44D5347904CF754D6785B84253F2574A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				DCF3C7B7271850043168E7C4529FF2A6 /* Pods */,
+				25AAFC94FFD0FD8BDDD28682D7A50D17 /* Products */,
+				033E9400D61D85A47DF45ACBAF63C19E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8B8990E861D16E46B3C978EB3F6B8634 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D4E7C0825347F8ED1D3296247ABBF69 /* GTProgressBar.modulemap */,
+				1D349AC241A840F10DC5E2EC365E549A /* GTProgressBar.xcconfig */,
+				69954A3C72D8374F8139972A9EE5936B /* GTProgressBar-dummy.m */,
+				FD1C35BE1FE7DCD46185FF601CCD2723 /* GTProgressBar-prefix.pch */,
+				019074A0BD323B06E61370ED2169DE91 /* GTProgressBar-umbrella.h */,
+				B5DB66411F6E1448663C4F855E41B2B0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTProgressBar";
+			sourceTree = "<group>";
+		};
+		90155681969618CF8097128129AA0275 /* Pods-CheckList2 */ = {
+			isa = PBXGroup;
+			children = (
+				66F03435C97438CFFA9335E5E9E0F468 /* Info.plist */,
+				53D31D9E8B8190701250D0DCC56A3769 /* Pods-CheckList2.modulemap */,
+				D6D50CEAB711711BF2BB2B5BD7D0018B /* Pods-CheckList2-acknowledgements.markdown */,
+				4F774182F1CEB4A7BA09748D0BAE393A /* Pods-CheckList2-acknowledgements.plist */,
+				0FBA2F1F2A7F1396B9176CDDCF6BD132 /* Pods-CheckList2-dummy.m */,
+				801610C710A5DD36E6E68BB0FF4CE991 /* Pods-CheckList2-frameworks.sh */,
+				2403605B9E1D5AD3B2D4E1D63ACC2F69 /* Pods-CheckList2-resources.sh */,
+				67AF8BC9ADD6118148D787BAE7539EFE /* Pods-CheckList2-umbrella.h */,
+				F164F489C727D017D0E7D9C909222F4E /* Pods-CheckList2.debug.xcconfig */,
+				1E6410CB33282444318ADEE7531C8264 /* Pods-CheckList2.release.xcconfig */,
+			);
+			name = "Pods-CheckList2";
+			path = "Target Support Files/Pods-CheckList2";
+			sourceTree = "<group>";
+		};
+		9FE2A2B59BFBAA5490DD95EC74298034 /* Pods-CheckList2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				648259B1FB1BC54242B720CFFDAB55FF /* Info.plist */,
+				5C28544D1AF059452DB047297907F509 /* Pods-CheckList2Tests.modulemap */,
+				7D10B0A132D5549A671F0A10264E082D /* Pods-CheckList2Tests-acknowledgements.markdown */,
+				7D408CB63FF20FE8CDFEA03522FA9112 /* Pods-CheckList2Tests-acknowledgements.plist */,
+				20B14AC6556961786DDD41E2A202D9CD /* Pods-CheckList2Tests-dummy.m */,
+				442339BF4E06F142022CC97AA895EE8D /* Pods-CheckList2Tests-frameworks.sh */,
+				5DBFB2B6D1391A5C55267B3C58588159 /* Pods-CheckList2Tests-resources.sh */,
+				957B7468464935B94568F198A2547993 /* Pods-CheckList2Tests-umbrella.h */,
+				DCA4B8A811F9612BFAE94DD2D490AEFF /* Pods-CheckList2Tests.debug.xcconfig */,
+				8707A5A767EC3BF7F60110E43699F3A5 /* Pods-CheckList2Tests.release.xcconfig */,
+			);
+			name = "Pods-CheckList2Tests";
+			path = "Target Support Files/Pods-CheckList2Tests";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44D5347904CF754D6785B84253F2574A /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCF3C7B7271850043168E7C4529FF2A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1968BDCAC3C98BDFD30A15DE745DF0AF /* GTProgressBar */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5EA66E2ADF1B0CDC043AA23C1684FFC /* Pods-CheckList2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B024A037EA91D1D78345B5AD2DB4C96 /* Info.plist */,
+				E095C9B09BCEAB8F8FF035194F6BD721 /* Pods-CheckList2UITests.modulemap */,
+				52BCCC8063EAA6DCC90F91EE95F12B8C /* Pods-CheckList2UITests-acknowledgements.markdown */,
+				33983D2142DDD51DA6F97D811096B5FC /* Pods-CheckList2UITests-acknowledgements.plist */,
+				7E32F0EA6CE6A1866C047FCBD48EC373 /* Pods-CheckList2UITests-dummy.m */,
+				E9DBF86381A4D1B77A64039A8909CF9C /* Pods-CheckList2UITests-frameworks.sh */,
+				0B50652EBE79E602DE280DBE59627186 /* Pods-CheckList2UITests-resources.sh */,
+				9274ADD82E9305F02732EBBB98F67A92 /* Pods-CheckList2UITests-umbrella.h */,
+				2E7A3A2CF8266F417FE15B936CA03F41 /* Pods-CheckList2UITests.debug.xcconfig */,
+				69702860F51BFDC9E0BF0336887B700D /* Pods-CheckList2UITests.release.xcconfig */,
+			);
+			name = "Pods-CheckList2UITests";
+			path = "Target Support Files/Pods-CheckList2UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		017AA004BAEFCCECCB1D548B3D2F694A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3B163AD7726C4EE3029B13FC820029 /* Pods-CheckList2-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38B745CB20B125894A66FA5E2ACFED9D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46876237653B4B73FC48687C6221F803 /* Pods-CheckList2Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B565DDEEC9A9A901B67F9AEB900D23BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08CFBCB199BCBCE94FAADD25E761FE00 /* Pods-CheckList2UITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E229AD4B3630AAE6FECAC398AA08CD9F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E7C1613C56E2CB0698BA3A06B8D0D20 /* GTProgressBar-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1AFEE86C6DBFF52DCED4DD0E72ECE2D6 /* GTProgressBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 936B6FAF10942F0E082AC5FDE59449C0 /* Build configuration list for PBXNativeTarget "GTProgressBar" */;
+			buildPhases = (
+				E229AD4B3630AAE6FECAC398AA08CD9F /* Headers */,
+				9372A8F2970DD905AFE16E7FB682674A /* Sources */,
+				61E988EF6FA644B3EEC67D8A3EDC2844 /* Frameworks */,
+				F8C8FF90B7032741D8B810C093FCDA13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTProgressBar;
+			productName = GTProgressBar;
+			productReference = 83586E298DDE658C8B14467B277CF4B8 /* GTProgressBar.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6293F0F8D16F72F072F9B14E50D64A45 /* Pods-CheckList2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48D354094E3999642BFB9FFA89BED185 /* Build configuration list for PBXNativeTarget "Pods-CheckList2Tests" */;
+			buildPhases = (
+				38B745CB20B125894A66FA5E2ACFED9D /* Headers */,
+				C90DB0FBD38E0C39A31C8E24FDCBA7BA /* Sources */,
+				A4EF7AD4C09941EA3FD351505ADDC0C3 /* Frameworks */,
+				3DC83DFB51F613ADDF118CA5DCC5D5E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD54DF3BDA941AB86540832611B1DEB9 /* PBXTargetDependency */,
+			);
+			name = "Pods-CheckList2Tests";
+			productName = "Pods-CheckList2Tests";
+			productReference = 1B1F88D5A728E247035F2146ED6E880A /* Pods_CheckList2Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84B884BD007E8E34CA0B811CC7C3E4D6 /* Pods-CheckList2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0A77B713AC502A47F4B820358816514 /* Build configuration list for PBXNativeTarget "Pods-CheckList2UITests" */;
+			buildPhases = (
+				B565DDEEC9A9A901B67F9AEB900D23BA /* Headers */,
+				C99D695DA244486F861739E939DE8901 /* Sources */,
+				A90E742192F8FFA5420DACCF7AA8D4F3 /* Frameworks */,
+				24BFEF486C0EA207EF4049CD9CECD53E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16D5179FC44ED0FADDB042CFD20808DA /* PBXTargetDependency */,
+			);
+			name = "Pods-CheckList2UITests";
+			productName = "Pods-CheckList2UITests";
+			productReference = 6C70C62602575C50544AA3FCF2A9C765 /* Pods_CheckList2UITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB9E8D55EFA18EE035331AF23B4326BD /* Pods-CheckList2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 701B8E94FBE8FF3B39F524E2F875E5D3 /* Build configuration list for PBXNativeTarget "Pods-CheckList2" */;
+			buildPhases = (
+				017AA004BAEFCCECCB1D548B3D2F694A /* Headers */,
+				D015DF9F12E364E1D4D5C8CB5E3154FF /* Sources */,
+				2286792E871CECAC6AF0121438AD18AD /* Frameworks */,
+				81560C5A26462FF3CF9F01B84A0CC659 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB2A4BA54DE2F630596F2A1E26D54E4E /* PBXTargetDependency */,
+			);
+			name = "Pods-CheckList2";
+			productName = "Pods-CheckList2";
+			productReference = 47B79F6DF84D00A621FCB1CDFEECB9D5 /* Pods_CheckList2.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					1AFEE86C6DBFF52DCED4DD0E72ECE2D6 = {
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 25AAFC94FFD0FD8BDDD28682D7A50D17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AFEE86C6DBFF52DCED4DD0E72ECE2D6 /* GTProgressBar */,
+				CB9E8D55EFA18EE035331AF23B4326BD /* Pods-CheckList2 */,
+				6293F0F8D16F72F072F9B14E50D64A45 /* Pods-CheckList2Tests */,
+				84B884BD007E8E34CA0B811CC7C3E4D6 /* Pods-CheckList2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24BFEF486C0EA207EF4049CD9CECD53E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DC83DFB51F613ADDF118CA5DCC5D5E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81560C5A26462FF3CF9F01B84A0CC659 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C8FF90B7032741D8B810C093FCDA13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9372A8F2970DD905AFE16E7FB682674A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD9F1C7EB42361AB7788409512B3226 /* FrameCalculator.swift in Sources */,
+				882790D0899C675C46601AB51899EDA7 /* GTProgressBar-dummy.m in Sources */,
+				C2FA5DD85AE43995BD3CAC318689B4E9 /* GTProgressBar.swift in Sources */,
+				65CF01894AF5A2481E476B9672CA62F1 /* GTProgressBarCornerType.swift in Sources */,
+				FBE0B0622EAFB75E37320C88E3648B9E /* GTProgressBarDirection.swift in Sources */,
+				39FF3602054AC8A706A9EE9BDAA8971A /* GTProgressBarLabelPosition.swift in Sources */,
+				F55451E3CBFC1308D64A0D82A9DF2633 /* GTProgressBarOrientation.swift in Sources */,
+				7569E5CC8EBE3482CB28FA91307E642E /* HorizontalLabelPositionFrameCalculator.swift in Sources */,
+				6F096C206B2E95FBB30FDADEE39EF6B2 /* UILabelExtensions.swift in Sources */,
+				268F2FA6379DE8F877BF3EBE445EC4B4 /* UIViewExtensions.swift in Sources */,
+				FAF3FA9ACDA4AFC27EC898BACC0765D4 /* VerticalLabelPositionFrameCalculator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C90DB0FBD38E0C39A31C8E24FDCBA7BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA54FB42C8DB4BC43A63F868DD80D1F6 /* Pods-CheckList2Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C99D695DA244486F861739E939DE8901 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5931AE7D41EEAD3145A6A430EB15DC44 /* Pods-CheckList2UITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D015DF9F12E364E1D4D5C8CB5E3154FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E23765A53617AE195D3A8E36FDFEA9F1 /* Pods-CheckList2-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16D5179FC44ED0FADDB042CFD20808DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CheckList2";
+			target = CB9E8D55EFA18EE035331AF23B4326BD /* Pods-CheckList2 */;
+			targetProxy = 822B3DD59C1ED13062548E7D2055AB15 /* PBXContainerItemProxy */;
+		};
+		EB2A4BA54DE2F630596F2A1E26D54E4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTProgressBar;
+			target = 1AFEE86C6DBFF52DCED4DD0E72ECE2D6 /* GTProgressBar */;
+			targetProxy = 7E761E533912D0ADC49F498D1EDF3023 /* PBXContainerItemProxy */;
+		};
+		FD54DF3BDA941AB86540832611B1DEB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CheckList2";
+			target = CB9E8D55EFA18EE035331AF23B4326BD /* Pods-CheckList2 */;
+			targetProxy = 76F8FCE48CE7293F92581142BE1A9169 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0AA3B91655AF95B1F49159CD8085CD89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2058F4D0FB7B5E417070CEB6B5667BFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D349AC241A840F10DC5E2EC365E549A /* GTProgressBar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTProgressBar/GTProgressBar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTProgressBar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GTProgressBar/GTProgressBar.modulemap";
+				PRODUCT_MODULE_NAME = GTProgressBar;
+				PRODUCT_NAME = GTProgressBar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2445FB9047E5C106A586EB0463D33C12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F164F489C727D017D0E7D9C909222F4E /* Pods-CheckList2.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2/Pods-CheckList2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2DE4DB29973A280E04D64B12F6CC678D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7A3A2CF8266F417FE15B936CA03F41 /* Pods-CheckList2UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2UITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2UITests/Pods-CheckList2UITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4CB9E54336F9F7617C227984D1E4955E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69702860F51BFDC9E0BF0336887B700D /* Pods-CheckList2UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2UITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2UITests/Pods-CheckList2UITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		540F99DCD960933AD05049873C3295B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E6410CB33282444318ADEE7531C8264 /* Pods-CheckList2.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2/Pods-CheckList2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64B5CCFF3A51AE25517A9C981A18A3F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D349AC241A840F10DC5E2EC365E549A /* GTProgressBar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GTProgressBar/GTProgressBar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GTProgressBar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GTProgressBar/GTProgressBar.modulemap";
+				PRODUCT_MODULE_NAME = GTProgressBar;
+				PRODUCT_NAME = GTProgressBar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A6D66F671811FBB7A82085766FA1EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8707A5A767EC3BF7F60110E43699F3A5 /* Pods-CheckList2Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2Tests/Pods-CheckList2Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8000995DA02063BF3777393CD52061DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D535A825CE9D4D669B19EEF73F1BB8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCA4B8A811F9612BFAE94DD2D490AEFF /* Pods-CheckList2Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-CheckList2Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CheckList2Tests/Pods-CheckList2Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AA3B91655AF95B1F49159CD8085CD89 /* Debug */,
+				8000995DA02063BF3777393CD52061DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48D354094E3999642BFB9FFA89BED185 /* Build configuration list for PBXNativeTarget "Pods-CheckList2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D535A825CE9D4D669B19EEF73F1BB8BD /* Debug */,
+				6A6D66F671811FBB7A82085766FA1EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		701B8E94FBE8FF3B39F524E2F875E5D3 /* Build configuration list for PBXNativeTarget "Pods-CheckList2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2445FB9047E5C106A586EB0463D33C12 /* Debug */,
+				540F99DCD960933AD05049873C3295B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		936B6FAF10942F0E082AC5FDE59449C0 /* Build configuration list for PBXNativeTarget "GTProgressBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2058F4D0FB7B5E417070CEB6B5667BFF /* Debug */,
+				64B5CCFF3A51AE25517A9C981A18A3F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0A77B713AC502A47F4B820358816514 /* Build configuration list for PBXNativeTarget "Pods-CheckList2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DE4DB29973A280E04D64B12F6CC678D /* Debug */,
+				4CB9E54336F9F7617C227984D1E4955E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

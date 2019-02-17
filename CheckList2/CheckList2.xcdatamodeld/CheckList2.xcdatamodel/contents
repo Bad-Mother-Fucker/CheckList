@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Collection" representedClassName=".CollectionMO" syncable="YES" codeGenerationType="class">
+        <attribute name="dealer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="elements" optional="YES" attributeType="Transformable" customClassName="[Data]" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="posseduti" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Collezionabile" representedClassName="CollezionabileMO" syncable="YES" codeGenerationType="class">
+        <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="informazioni" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numero" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rarita" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stato" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="CountedCollection" representedClassName=".CountedCollectionMO" parentEntity="Collection" syncable="YES" codeGenerationType="class">
+        <attribute name="elementCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isChecklistMode" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Collection" positionX="23.86328125" positionY="-109.73046875" width="128" height="135"/>
+        <element name="Collezionabile" positionX="298.88671875" positionY="-114.9765625" width="128" height="133"/>
+        <element name="CountedCollection" positionX="55.74609375" positionY="142.4765625" width="128" height="75"/>
+    </elements>
 </model>
