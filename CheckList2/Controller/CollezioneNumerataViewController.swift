@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIKit.UIGestureRecognizerSubclass
 
 
 class CollezioneNumerataViewController: UIViewController {
@@ -20,7 +21,11 @@ class CollezioneNumerataViewController: UIViewController {
     var cellIdentifier = "cellaConNumero"
     var collectionIndex: Int?
     var tap: UITapGestureRecognizer!
-    var press: UILongPressGestureRecognizer!
+    var press: UIShortPressGestureRecognizer!
+    let impact = UIImpactFeedbackGenerator(style: .medium)
+    let check = UINotificationFeedbackGenerator()
+    var doubleTap: UIShortDoubleTapGestureRecognizer!
+
 
 
     var collezionabili: [CollectionElement] {
@@ -67,13 +72,22 @@ class CollezioneNumerataViewController: UIViewController {
         }
 
 
+
         tap = UITapGestureRecognizer(target: self, action: #selector(tapOnCell))
-        press = UILongPressGestureRecognizer(target: self, action: #selector(pressOnCell))
+
+        press = UIShortPressGestureRecognizer(target: self, action: #selector(pressOnCell))
         press.allowableMovement = 0.5
         press.minimumPressDuration = 1
+        doubleTap = UIShortDoubleTapGestureRecognizer(target: self, action: #selector(doubleTapOnCell))
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.numberOfTouchesRequired = 1
+
+        tap.require(toFail: doubleTap)
+
+        collectionView.addGestureRecognizer(doubleTap)
         collectionView.addGestureRecognizer(tap)
         collectionView.addGestureRecognizer(press)
-        segmentedSwitch.backgroundColor = .white
+        segmentedSwitch.backgroundColor = .clear
         let titleLabel = UILabel(frame: navigationController!.navigationBar.frame)
 
         titleLabel.textColor = .black
@@ -106,16 +120,67 @@ class CollezioneNumerataViewController: UIViewController {
     }
 
 
-    @objc func tapOnCell(_ gesture: UITapGestureRecognizer) {
 
-        debugPrint("cell tapped")
+    @objc func doubleTapOnCell(_ gesture: UITapGestureRecognizer) {
+        impact.prepare()
         guard let indexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
             debugPrint("unable to find IndexPath")
             return
         }
 
-        let cell = collectionView.cellForItem(at: indexPath)
 
+        let cell = collectionView.cellForItem(at: indexPath)
+        let collezionabile = collezionabili[indexPath.item]
+        switch collezionabile.stato {
+        case .mancante:
+
+            return
+
+        case .posseduto:
+            collezionabile.stato = .mancante
+            cell?.viewWithTag(3)?.backgroundColor = .white
+            impact.impactOccurred()
+
+        case .ripetuto(rep: let rep):
+            impact.impactOccurred()
+            if rep == 2 {
+                collezionabile.stato = .posseduto
+                cell?.viewWithTag(3)?.backgroundColor = .green
+                if let label = cell?.viewWithTag(2) as? UILabel {
+                    label.text = nil
+                }
+                guard segmentedSwitch.selectedSegmentIndex == 2 else { return }
+                self.collectionView.performBatchUpdates({
+                    let indexSet = IndexSet(integersIn: 0...0)
+                    self.collectionView.reloadSections(indexSet)
+                    debugPrint("reloaded")
+
+                }, completion: nil)
+
+            } else {
+                collezionabile.stato = .ripetuto(rep: rep-1)
+                cell?.viewWithTag(3)?.backgroundColor = .red
+                (cell?.viewWithTag(2) as! UILabel).text = "x\(collezionabile.stato.rawValue)"
+            }
+
+
+        }
+
+
+
+
+    }
+
+
+    @objc func tapOnCell(_ gesture: UITapGestureRecognizer) {
+        check.prepare()
+
+        guard let indexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
+            debugPrint("unable to find IndexPath")
+            return
+        }
+        check.notificationOccurred(.success)
+        let cell = collectionView.cellForItem(at: indexPath)
         let collezionabile = collezionabili[indexPath.item]
         switch collezionabile.stato {
         case .mancante:
@@ -143,19 +208,25 @@ class CollezioneNumerataViewController: UIViewController {
 
         }, completion: nil)
 
+
     }
 
 
 
     @objc func pressOnCell(_ gesture: UILongPressGestureRecognizer) {
         debugPrint("cell pressed")
+        check.prepare()
+        guard segmentedSwitch.selectedSegmentIndex == 0 else { return }
+
         guard let indexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
             debugPrint("unable to find IndexPath")
             return
         }
-        let collezionabile = collezionabili[indexPath.item]
-        collezionabile.stato = .mancante
 
+        let collezionabile = collezionabili[indexPath.item]
+        guard collezionabile.stato != .mancante else { return }
+        collezionabile.stato = .mancante
+        check.notificationOccurred(.error)
         let cell = collectionView.cellForItem(at: indexPath)
 
         if cell is ItemDetailCollectionViewCell {
@@ -166,19 +237,6 @@ class CollezioneNumerataViewController: UIViewController {
         if let label = cell?.viewWithTag(2) as? UILabel {
             label.text = nil
         }
-
-
-        guard segmentedSwitch.selectedSegmentIndex != 0 else { return }
-        gesture.isEnabled = false
-
-
-        self.collectionView.performBatchUpdates({
-            let indexSet = IndexSet(integersIn: 0...0)
-            self.collectionView.reloadSections(indexSet)
-            gesture.isEnabled = true
-            return
-        },completion:  nil)
-
 
         return
     }
@@ -232,8 +290,27 @@ extension CollezioneNumerataViewController: UICollectionViewDelegate, UICollecti
 
 }
 
-extension CollezioneNumerataViewController {
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        press.isEnabled = true
+class UIShortDoubleTapGestureRecognizer: UITapGestureRecognizer {
+    let maxDelay = 0.25
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
+        DispatchQueue.main.asyncAfter(deadline:.now() + maxDelay) {
+            if self.state != .recognized {
+                self.state = .failed
+            }
+        }
+
     }
+}
+
+class UIShortPressGestureRecognizer: UILongPressGestureRecognizer {
+    let maxDuration = 0.1
+
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent) {
+        super.pressesBegan(presses, with: event)
+        DispatchQueue.main.asyncAfter(deadline:.now() + maxDuration) {
+            self.state = .ended
+        }
+    }
+
 }
