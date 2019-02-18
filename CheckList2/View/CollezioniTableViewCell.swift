@@ -38,12 +38,12 @@ class CollezioniTableViewCell: UITableViewCell {
 
 
         if let cn = c as? CollezioneNumerata {
-            print("numerata")
+           
             progressBar.animateTo(progress: cn.completamento)
             progressBar.progress = cn.completamento
             possedutiLabel.isHidden = true
         } else {
-            print("no")
+
             progressBar.isHidden = true
             possedutiLabel.text = "\(c.numeroPosseduti) elementi"
 

@@ -128,3 +128,6 @@ extension UIViewController {
     }
 }
 
+enum CLNotificationNames {
+    static let collectionUpdated = Notification.Name("collection updated")
+}

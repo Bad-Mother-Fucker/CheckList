@@ -13,6 +13,7 @@ class NuovaCollezioneViewController: UIViewController {
     @IBOutlet weak var rootView: UIView!
 
     var collezione: Collezione?
+    var collectionImage: UIImage?
 
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -26,6 +27,8 @@ class NuovaCollezioneViewController: UIViewController {
         artwork.isUserInteractionEnabled = true
         rootView.addGestureRecognizer(keyboardTap)
         // Do any additional setup after loading the view.
+        setForDemoMode()
+
     }
 
 
@@ -56,6 +59,13 @@ class NuovaCollezioneViewController: UIViewController {
         }
     }
 
+
+    @IBAction func checklistSwitch(_ sender: Any) {
+        presentAlert()
+    }
+
+
+
     @IBOutlet weak var numerataSwitch: UISwitch! {
         didSet {
             numerataSwitch.setOn(false, animated: false)
@@ -70,9 +80,11 @@ class NuovaCollezioneViewController: UIViewController {
                 view.fadeIn()
             }
         } else {
-            hiddenViews.forEach { (view) in
-                view.fadeOut()
-            }
+//            hiddenViews.forEach { (view) in
+//                view.fadeOut()
+//            }
+            presentAlert()
+
         }
     }
 
@@ -99,7 +111,7 @@ class NuovaCollezioneViewController: UIViewController {
 
     @IBOutlet weak var sliderNumeri: UISlider! {
         didSet {
-            sliderNumeri.maximumValue = 999
+            sliderNumeri.maximumValue = 1000
             sliderNumeri.minimumValue = 1
             sliderNumeri.setValue(1, animated: false)
         }
@@ -115,7 +127,6 @@ class NuovaCollezioneViewController: UIViewController {
     @IBOutlet weak var artwork: UIImageView! {
         didSet {
             artwork.contentMode = .scaleAspectFit
-
             artwork.image = UIImage(named: "picture")
         }
     }
@@ -172,15 +183,38 @@ class NuovaCollezioneViewController: UIViewController {
 
     @IBAction func salva(_ sender: Any) {
 
+        guard titoloTextfield.text != nil, titoloTextfield.text!.count > 0 else {
+            let alert = UIAlertController(title: "Inserisci un nome", message: "Devi almeno scegliere un nome per la tua collezione!", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default) { (_) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+
         guard collezione == nil else {
             if let cn = collezione as? CollezioneNumerata {
                 let coll = CollezioneNumerata(nome: titoloTextfield.text ?? "", editore: editoreTextField.text ?? "", numeroElementi: Int(sliderNumeri.value))
-                coll.foto = artwork.image
-                coll.collezionabili = collezione!.collezionabili
+                coll.foto = collectionImage ?? UIImage(named: "default collection")
+                
+                if coll.numeroElementi > cn.numeroElementi  {
+                    coll.collezionabili = cn.collezionabili
+                    for _ in 1 ... coll.numeroElementi - cn.numeroElementi {
+                        let newElement = CollectionElement()
+                        newElement.numero = (coll.collezionabili.last!.numero ?? coll.collezionabili.first!.numero ?? 0) + 1
+                        coll.collezionabili.append(newElement)
+                    }
+                } else if coll.numeroElementi < cn.numeroElementi {
+                    coll.collezionabili = Array(cn.collezionabili.dropLast(cn.numeroElementi - coll.numeroElementi))
+                } else {
+                    coll.collezionabili = cn.collezionabili
+                }
+
                 DataManager.shared.update(cn,withDataFrom: coll)
             } else {
                 let coll = Collezione(nome: titoloTextfield.text ?? "", editore: editoreTextField.text ?? "")
-                coll.foto = artwork.image
+                coll.foto = collectionImage ?? UIImage(named: "default collection")
                 coll.collezionabili = collezione!.collezionabili
                 coll.numeroPosseduti = collezione!.numeroPosseduti
                 DataManager.shared.update(collezione!,withDataFrom: coll)
@@ -193,17 +227,37 @@ class NuovaCollezioneViewController: UIViewController {
         case true:
             let c = CollezioneNumerata(nome: self.titoloTextfield.text ?? "Senza nome", editore: self.editoreTextField.text ?? "", numeroElementi: Int(self.textFieldNumero.text!) ?? 0)
             c.isChecklistMode = self.checklistSwitch.isOn
-            c.foto = artwork.image
+            c.foto = collectionImage ?? UIImage(named: "default collection")
             DataManager.shared.salva(c)
 
         case false:
             let c = Collezione(nome: self.titoloTextfield.text ?? "Senza nome", editore: self.editoreTextField.text ?? "")
-            c.foto = artwork.image
+            c.foto = collectionImage ?? UIImage(named: "default collection")
             
             DataManager.shared.salva(c)
 
         }
         self.dismiss(animated: true, completion: nil)
+
+    }
+
+
+    func presentAlert() {
+        let alert = UIAlertController(title: "Spiancenti", message: "Al momento puoi gestire solamente collezioni numerate in modalità checklist. Torna presto per importanti aggiornamenti!", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default) { (_) in
+            alert.dismiss(animated: true, completion: nil)
+            self.numerataSwitch.setOn(true, animated: true)
+            self.checklistSwitch.setOn(true, animated: true)
+        }
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+
+    }
+
+    func setForDemoMode() {
+        hiddenViews.forEach { $0.isHidden = false }
+        numerataSwitch.setOn(true, animated: false)
+        checklistSwitch.setOn(true, animated: false)
 
     }
 
@@ -216,6 +270,7 @@ extension NuovaCollezioneViewController: UIImagePickerControllerDelegate, UINavi
             debugPrint(pickedImage)
             picker.dismiss(animated: true, completion: nil)
             artwork.image = pickedImage
+            collectionImage = pickedImage
         }
     }
 }
@@ -235,7 +290,9 @@ extension NuovaCollezioneViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: textField.center.y - 100), animated: true)
-
+        if textField.tag == 3 {
+            textField.text = ""
+        }
     }
 
 
@@ -245,7 +302,13 @@ extension NuovaCollezioneViewController: UITextFieldDelegate {
             sliderNumeri.setValue(Float(textField.text!) ?? 0, animated: true)
         }
     }
+
+
+
 }
+
+
+
 
 
 

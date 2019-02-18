@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CollezioneNumerataViewController: UIViewController {
 
     let fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
@@ -18,6 +19,8 @@ class CollezioneNumerataViewController: UIViewController {
     }
     var cellIdentifier = "cellaConNumero"
     var collectionIndex: Int?
+    var tap: UITapGestureRecognizer!
+    var press: UILongPressGestureRecognizer!
 
 
     var collezionabili: [CollectionElement] {
@@ -25,8 +28,8 @@ class CollezioneNumerataViewController: UIViewController {
         case 0:
             return collezione!.collezionabili
         case 1:
-            let copy = collezione!.collezionabili.copy()
-            return copy.filter({
+
+            return collezione!.collezionabili.filter({
                 switch $0.stato {
                 case .mancante:
                     return true
@@ -36,8 +39,8 @@ class CollezioneNumerataViewController: UIViewController {
                 }
             })
         case 2:
-            let copy = collezione!.collezionabili.copy()
-            return copy.filter({
+
+            return collezione!.collezionabili.filter({
                 switch $0.stato {
                 case .ripetuto(rep: _):
 
@@ -64,8 +67,8 @@ class CollezioneNumerataViewController: UIViewController {
         }
 
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnCell))
-        let press = UILongPressGestureRecognizer(target: self, action: #selector(pressOnCell))
+        tap = UITapGestureRecognizer(target: self, action: #selector(tapOnCell))
+        press = UILongPressGestureRecognizer(target: self, action: #selector(pressOnCell))
         press.allowableMovement = 0.5
         press.minimumPressDuration = 1
         collectionView.addGestureRecognizer(tap)
@@ -85,7 +88,6 @@ class CollezioneNumerataViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         DataManager.shared.update(collezione!)
     }
     
@@ -105,6 +107,7 @@ class CollezioneNumerataViewController: UIViewController {
 
 
     @objc func tapOnCell(_ gesture: UITapGestureRecognizer) {
+
         debugPrint("cell tapped")
         guard let indexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
             debugPrint("unable to find IndexPath")
@@ -118,17 +121,27 @@ class CollezioneNumerataViewController: UIViewController {
         case .mancante:
             collezionabile.stato = .posseduto
             cell?.viewWithTag(3)?.backgroundColor = .green
+            print("collezionabile numero: \(collezionabile.numero!) stato: \(collezionabile.stato)")
+
         case .posseduto:
             collezionabile.stato = .ripetuto(rep: 2)
             cell?.viewWithTag(3)?.backgroundColor = .red
             (cell?.viewWithTag(2) as! UILabel).text = "x\(2)"
+            print("collezionabile numero: \(collezionabile.numero!) stato: \(collezionabile.stato)")
         case .ripetuto(rep: let rep):
             collezionabile.stato = .ripetuto(rep: rep+1)
             cell?.viewWithTag(3)?.backgroundColor = .red
             (cell?.viewWithTag(2) as! UILabel).text = "x\(collezionabile.stato.rawValue)"
+            print("collezionabile numero: \(collezionabile.numero!) stato: \(collezionabile.stato)")
             
         }
 
+        guard segmentedSwitch.selectedSegmentIndex != 0 else { return }
+        self.collectionView.performBatchUpdates({
+            let indexSet = IndexSet(integersIn: 0...0)
+            self.collectionView.reloadSections(indexSet)
+
+        }, completion: nil)
 
     }
 
@@ -150,8 +163,24 @@ class CollezioneNumerataViewController: UIViewController {
         }
 
         cell?.viewWithTag(3)?.backgroundColor = .white
-        (cell?.viewWithTag(2) as! UILabel).text = nil
+        if let label = cell?.viewWithTag(2) as? UILabel {
+            label.text = nil
+        }
 
+
+        guard segmentedSwitch.selectedSegmentIndex != 0 else { return }
+        gesture.isEnabled = false
+
+
+        self.collectionView.performBatchUpdates({
+            let indexSet = IndexSet(integersIn: 0...0)
+            self.collectionView.reloadSections(indexSet)
+            gesture.isEnabled = true
+            return
+        },completion:  nil)
+
+
+        return
     }
 
 
@@ -201,7 +230,10 @@ extension CollezioneNumerataViewController: UICollectionViewDelegate, UICollecti
 
     }
 
+}
 
-
-
+extension CollezioneNumerataViewController {
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        press.isEnabled = true
+    }
 }

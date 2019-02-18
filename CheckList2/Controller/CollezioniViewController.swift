@@ -16,12 +16,15 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = true
+        addObservers()
+       
 
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.largeTitleTextAttributes =
@@ -47,6 +50,12 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
     let fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
 
 
+    func addObservers() {
+        NotificationCenter.default.addObserver(forName: CLNotificationNames.collectionUpdated, object: nil, queue: .main) { [weak self] (_) in
+            self?.collezioniTableView.reloadData()
+            self?.collezioniTableView.isUserInteractionEnabled = true
+        }
+    }
 
     
     // MARK: Outlets
@@ -57,6 +66,8 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
             collezioniTableView.dataSource = self
         }
     }
+
+
 
 
     // MARK: Navigation
@@ -115,12 +126,25 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Elimina") { (action, indexPath) in
-            DataManager.shared.deleteCollection(User.shared.collezioni[indexPath.row])
-            User.shared.collezioni.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            if User.shared.collezioni.count == 0 {
-                tableView.isHidden = true
-            }
+
+            let alert = UIAlertController(title: "Vuoi eliminare questa collezione?", message: "Tutti i dati ad essa relativi saranno definitivamente rimossi dall'applicazione", preferredStyle: .actionSheet)
+            let elimina = UIAlertAction(title: "Elimina", style: .destructive, handler: { (_) in
+                DataManager.shared.deleteCollection(User.shared.collezioni[indexPath.row])
+                User.shared.collezioni.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                if User.shared.collezioni.count == 0 {
+                    tableView.isHidden = true
+                }
+            })
+            let annulla = UIAlertAction(title: "Annulla", style: .cancel, handler: { (_) in
+                self.dismiss(animated: true, completion: nil)
+            })
+
+            alert.addAction(elimina)
+            alert.addAction(annulla)
+            self.present(alert, animated: true, completion: nil)
+
+
         }
 
         let edit = UITableViewRowAction(style: .normal, title: "Modifica") { (action, indexPath) in
