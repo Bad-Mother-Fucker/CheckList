@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  CheckList2
+
+  Created by Gianluca Orpello on 18/02/2019.
+  Copyright © 2019 Michele De Sena. All rights reserved.
+*/
+"Series" = "Collezioni";
+"Add a Series" = "Aggiungi una collezione";
+"Use the '+' button to start!" = "Usa il pulsante '+' per cominciare!";
+"New Series" = "Nuova Collezione";
+"Title of the Series" = "Titolo della collezione";
+"Publisher" = "Editore";
+"Numbered series" = "Collezione numerata";
+"Cancel" = "Annulla";
+"Save" = "Salva";
+"The series consists of a finite number of elements, each of which is uniquely identified by a number. Indicate below the number of items in your collection." = "La collezione è costituita da un numero finito di elementi, ognuno dei quali è univocamente identificato tramite un numero. Indica qui soto il numero di elementi della tua collezione.";
+"Checklist mode" = "Modalità checklist";
+"The checklist mode offers the possibility to select the numbers of the elements of the series that you have, automatically taking into account those missing and repeated, ignoring further information on collectables." = "La modalità checklist offre la possibilità di selezionare i numeri degli elementi della collezione che si posseggono, tenendo conto automaticamente di quelli mancanti e ripetuti, ignorando ulteriori informazioni sui collezionabili.";
+"Enter a name" = "Inserisci un nome";
+"You must at least choose a name for your series" = "Devi almeno scegliere un nome per la tua collezione!";
+"OK" = "OK";
+"All" = "Tutte";
+"Missing" = "Mancanti";
+"Repeated" = "Ripetute";
+"Edit" = "Modifica";
+"Deleate" = "Elimina";
+"Do you want to delete this series?" = "Vuoi eliminare questa collezione?";
+"All data relating to it will be permanently removed from the application" = "Tutti i dati ad essa relativa saranno definitivamente rimossi dall'applicazione";
+"Camera" = "Camera";
+"Gallery" = "Galleria";
+"No Name" = "Senza Nome";
+"Sorry" = "Spiacenti";
+"Currently you can only manage numbered collections in checklist mode. Come back soon for important updates!" = "Al momento puoi gestire solamente collezioni numerate in modalità checklist. Torna presto per importanti aggiornamenti!";

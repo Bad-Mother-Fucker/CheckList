@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Consenti l&apos;utilizzo della fotocamera per scattare una foto</string>
 	<key>CFBundleDisplayName</key>
 	<string>CheckList</string>
 	<key>CFBundleExecutable</key>
@@ -24,6 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Consenti l'utilizzo della fotocamera per scattare una foto</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

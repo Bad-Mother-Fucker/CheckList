@@ -125,10 +125,13 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
 
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Elimina") { (action, indexPath) in
+        let delete = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Deleate", comment: "")) {
+            (action, indexPath) in
 
-            let alert = UIAlertController(title: "Vuoi eliminare questa collezione?", message: "Tutti i dati ad essa relativi saranno definitivamente rimossi dall'applicazione", preferredStyle: .actionSheet)
-            let elimina = UIAlertAction(title: "Elimina", style: .destructive, handler: { (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Do you want to delete this series?", comment: ""),
+                                          message: NSLocalizedString("All data relating to it will be permanently removed from the application", comment: ""),
+                                          preferredStyle: .actionSheet)
+            let elimina = UIAlertAction(title: NSLocalizedString("Deleate", comment: ""), style: .destructive, handler: { (_) in
                 DataManager.shared.deleteCollection(User.shared.collezioni[indexPath.row])
                 User.shared.collezioni.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -136,7 +139,7 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
                     tableView.isHidden = true
                 }
             })
-            let annulla = UIAlertAction(title: "Annulla", style: .cancel, handler: { (_) in
+            let annulla = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in
                 self.dismiss(animated: true, completion: nil)
             })
 
@@ -147,8 +150,7 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
 
         }
 
-        let edit = UITableViewRowAction(style: .normal, title: "Modifica") { (action, indexPath) in
-
+        let edit = UITableViewRowAction(style: .normal, title: NSLocalizedString("Edit", comment: "")) { (action, indexPath) in
 
             let navControl = self.storyboard!.instantiateViewController(withIdentifier: "navControl") as! UINavigationController
             let editViewController = navControl.visibleViewController as! NuovaCollezioneViewController

@@ -1,0 +1,111 @@
+
+/* Class = "UITextField"; placeholder = "Rarità"; ObjectID = "07h-OX-08C"; */
+"07h-OX-08C.placeholder" = "Rarità";
+
+/* Class = "UILabel"; text = "Titolo"; ObjectID = "4Ku-Jc-DOH"; */
+"4Ku-Jc-DOH.text" = "Titolo";
+
+/* Class = "UIViewController"; title = "addCollectionViewController"; ObjectID = "BEx-ab-jyO"; */
+"BEx-ab-jyO.title" = "addCollectionViewController";
+
+/* Class = "UILabel"; text = "Collezione numerata"; ObjectID = "CWu-Qm-HUA"; */
+"CWu-Qm-HUA.text" = "Collezione numerata";
+
+/* Class = "UIBarButtonItem"; title = "Annulla"; ObjectID = "Cep-ov-XtB"; */
+"Cep-ov-XtB.title" = "Annulla";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "Fli-j6-6H8"; */
+"Fli-j6-6H8.text" = "1";
+
+/* Class = "UITextField"; placeholder = "Titolo della collezione"; ObjectID = "G0e-YF-sQc"; */
+"G0e-YF-sQc.placeholder" = "Titolo della collezione";
+
+/* Class = "UITextView"; text = "Informazioni Utili"; ObjectID = "Jd5-iW-DX7"; */
+"Jd5-iW-DX7.text" = "Informazioni Utili";
+
+/* Class = "UILabel"; text = "Titolo"; ObjectID = "KPX-vR-iPh"; */
+"KPX-vR-iPh.text" = "Titolo";
+
+/* Class = "UIBarButtonItem"; title = "Annulla"; ObjectID = "KSk-OZ-Vei"; */
+"KSk-OZ-Vei.title" = "Annulla";
+
+/* Class = "UIBarButtonItem"; title = "Salva"; ObjectID = "Kkm-wM-LRE"; */
+"Kkm-wM-LRE.title" = "Salva";
+
+/* Class = "UIViewController"; title = "NomeCollezione"; ObjectID = "Kxs-jI-A4Q"; */
+"Kxs-jI-A4Q.title" = "NomeCollezione";
+
+/* Class = "UITextField"; placeholder = "N°"; ObjectID = "PuS-M2-9Db"; */
+"PuS-M2-9Db.placeholder" = "N°";
+
+/* Class = "UITextView"; text = "La modalità checklist offre la possibilità di selezionare i numeri degli elementi della collezione che si posseggono, tenendo conto automaticamente di quelli mancanti e ripetuti, ignorando ulteriori informazioni sui collezionabili."; ObjectID = "QUb-8e-ivK"; */
+"QUb-8e-ivK.text" = "La modalità checklist offre la possibilità di selezionare i numeri degli elementi della collezione che si posseggono, tenendo conto automaticamente di quelli mancanti e ripetuti, ignorando ulteriori informazioni sui collezionabili.";
+
+/* Class = "UISegmentedControl"; Qfm-a8-ERY.segmentTitles[0] = "Completa"; ObjectID = "Qfm-a8-ERY"; */
+"Qfm-a8-ERY.segmentTitles[0]" = "Completa";
+
+/* Class = "UISegmentedControl"; Qfm-a8-ERY.segmentTitles[1] = "Mancanti"; ObjectID = "Qfm-a8-ERY"; */
+"Qfm-a8-ERY.segmentTitles[1]" = "Mancanti";
+
+/* Class = "UISegmentedControl"; Qfm-a8-ERY.segmentTitles[2] = "Ripetuti"; ObjectID = "Qfm-a8-ERY"; */
+"Qfm-a8-ERY.segmentTitles[2]" = "Ripetuti";
+
+/* Class = "UITextField"; placeholder = "Editore"; ObjectID = "T1Q-qo-lpu"; */
+"T1Q-qo-lpu.placeholder" = "Editore";
+
+/* Class = "UILabel"; text = "Aggiungi un nuovo elemento"; ObjectID = "W3S-JP-5TJ"; */
+"W3S-JP-5TJ.text" = "Aggiungi un nuovo elemento";
+
+/* Class = "UITextField"; placeholder = "Descrizione"; ObjectID = "WWQ-UG-Vw2"; */
+"WWQ-UG-Vw2.placeholder" = "Descrizione";
+
+/* Class = "UIViewController"; title = "addItemViewController"; ObjectID = "b09-8u-NM7"; */
+"b09-8u-NM7.title" = "addItemViewController";
+
+/* Class = "UITextField"; placeholder = "Nome"; ObjectID = "d9r-sp-eJe"; */
+"d9r-sp-eJe.placeholder" = "Nome";
+
+/* Class = "UILabel"; text = "In una collezione non numerata devi aggiungere manualmente ogni collezionabile utilizzando il pulsante '+'"; ObjectID = "f8n-OM-qYd"; */
+"f8n-OM-qYd.text" = "In una collezione non numerata devi aggiungere manualmente ogni collezionabile utilizzando il pulsante '+'";
+
+/* Class = "UINavigationItem"; title = "NomeCollezione"; ObjectID = "g1L-FV-vXo"; */
+"g1L-FV-vXo.title" = "NomeCollezione";
+
+/* Class = "UILabel"; text = "Usa il pulsante '+' per cominciare!"; ObjectID = "gnS-n2-bGN"; */
+"gnS-n2-bGN.text" = "Usa il pulsante '+' per cominciare!";
+
+/* Class = "UILabel"; text = "Informazioni"; ObjectID = "gy0-yM-0Zw"; */
+"gy0-yM-0Zw.text" = "Informazioni";
+
+/* Class = "UILabel"; text = "rep"; ObjectID = "iga-I3-mdl"; */
+"iga-I3-mdl.text" = "rep";
+
+/* Class = "UILabel"; text = "Modalità checklist"; ObjectID = "kza-5C-MCX"; */
+"kza-5C-MCX.text" = "Modalità checklist";
+
+/* Class = "UILabel"; text = "Posseduti"; ObjectID = "lvt-zi-wxa"; */
+"lvt-zi-wxa.text" = "Posseduti";
+
+/* Class = "UITextView"; text = "La collezione è costituita da un numero finito di elementi, ognuno dei quali è univocamente identificato tramite un numero. Indica qui soto il numero di elementi della tua collezione."; ObjectID = "mBN-E3-wPp"; */
+"mBN-E3-wPp.text" = "La collezione è costituita da un numero finito di elementi, ognuno dei quali è univocamente identificato tramite un numero. Indica qui soto il numero di elementi della tua collezione.";
+
+/* Class = "UILabel"; text = "Aggiungi una collezione"; ObjectID = "mZr-EF-W1C"; */
+"mZr-EF-W1C.text" = "Aggiungi una collezione";
+
+/* Class = "UINavigationItem"; title = "Nuovo collezionabile"; ObjectID = "ofN-mH-BaF"; */
+"ofN-mH-BaF.title" = "Nuovo collezionabile";
+
+/* Class = "UINavigationItem"; title = "Nuova Collezione"; ObjectID = "pVU-cp-Vno"; */
+"pVU-cp-Vno.title" = "Nuova Collezione";
+
+/* Class = "UINavigationItem"; title = "Collezioni"; ObjectID = "vjs-hb-rgt"; */
+"vjs-hb-rgt.title" = "Collezioni";
+
+/* Class = "UIBarButtonItem"; title = "Salva"; ObjectID = "w4R-5I-QAs"; */
+"w4R-5I-QAs.title" = "Salva";
+
+/* Class = "UIViewController"; title = "NomeCollezione"; ObjectID = "xjx-Jv-3PT"; */
+"xjx-Jv-3PT.title" = "NomeCollezione";
+
+/* Class = "UILabel"; text = "Sottotitolo"; ObjectID = "z5J-Gj-aBK"; */
+"z5J-Gj-aBK.text" = "Sottotitolo";
