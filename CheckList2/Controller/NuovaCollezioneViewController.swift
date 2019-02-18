@@ -156,18 +156,18 @@ class NuovaCollezioneViewController: UIViewController {
         let picker = UIImagePickerController()
         picker.delegate = self
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "Camera", style: .default) { ( _ ) in
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default) { ( _ ) in
             picker.sourceType = .camera
             sheet.dismiss(animated: true, completion: nil)
             self.present(picker, animated: true, completion: nil)
         }
-        let library = UIAlertAction(title: "Galleria", style: .default) { ( _ ) in
+        let library = UIAlertAction(title: NSLocalizedString("Gallery", comment: ""), style: .default) { ( _ ) in
             picker.sourceType = .photoLibrary
             self.present(picker, animated: true, completion: nil)
             sheet.dismiss(animated: true, completion: nil)
         }
 
-        let cancel = UIAlertAction(title: "Annulla", style: .cancel) { ( _ ) in
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { ( _ ) in
             sheet.dismiss(animated: true, completion: nil)
         }
         sheet.addAction(camera)
@@ -184,8 +184,12 @@ class NuovaCollezioneViewController: UIViewController {
     @IBAction func salva(_ sender: Any) {
 
         guard titoloTextfield.text != nil, titoloTextfield.text!.count > 0 else {
-            let alert = UIAlertController(title: "Inserisci un nome", message: "Devi almeno scegliere un nome per la tua collezione!", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (_) in
+            let alert = UIAlertController(title: NSLocalizedString("Enter a name", comment: ""),
+                                          message: NSLocalizedString("You must at least choose a name for your series",
+                                                                     comment: ""),
+                                          preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
                 alert.dismiss(animated: true, completion: nil)
             }
             alert.addAction(ok)
@@ -225,13 +229,13 @@ class NuovaCollezioneViewController: UIViewController {
 
         switch self.numerataSwitch.isOn {
         case true:
-            let c = CollezioneNumerata(nome: self.titoloTextfield.text ?? "Senza nome", editore: self.editoreTextField.text ?? "", numeroElementi: Int(self.textFieldNumero.text!) ?? 0)
+            let c = CollezioneNumerata(nome: self.titoloTextfield.text ?? NSLocalizedString("No Name", comment: ""), editore: self.editoreTextField.text ?? "", numeroElementi: Int(self.textFieldNumero.text!) ?? 0)
             c.isChecklistMode = self.checklistSwitch.isOn
             c.foto = collectionImage ?? UIImage(named: "default collection")
             DataManager.shared.salva(c)
 
         case false:
-            let c = Collezione(nome: self.titoloTextfield.text ?? "Senza nome", editore: self.editoreTextField.text ?? "")
+            let c = Collezione(nome: self.titoloTextfield.text ?? NSLocalizedString("No Name", comment: ""), editore: self.editoreTextField.text ?? "")
             c.foto = collectionImage ?? UIImage(named: "default collection")
             
             DataManager.shared.salva(c)
@@ -243,8 +247,8 @@ class NuovaCollezioneViewController: UIViewController {
 
 
     func presentAlert() {
-        let alert = UIAlertController(title: "Spiancenti", message: "Al momento puoi gestire solamente collezioni numerate in modalità checklist. Torna presto per importanti aggiornamenti!", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .default) { (_) in
+        let alert = UIAlertController(title: NSLocalizedString("Sorry", comment: ""), message: NSLocalizedString("Currently you can only manage numbered collections in checklist mode. Come back soon for important updates!", comment: ""), preferredStyle: .alert)
+        let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
             alert.dismiss(animated: true, completion: nil)
             self.numerataSwitch.setOn(true, animated: true)
             self.checklistSwitch.setOn(true, animated: true)
