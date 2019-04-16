@@ -169,17 +169,19 @@ class DataManager {
 
 
 
-        let collection = CollectionMO(context: managedContext)
 
-        let countedCollection = CountedCollectionMO(context: managedContext)
+
+
 
         
 
-        if let _ = collezione as? CollezioneNumerata {
+        if collezione is CollezioneNumerata {
+            let countedCollection = CountedCollectionMO(context: managedContext)
             setCountedCollection(countedCollection)
             debugPrint("Salvo collezione \(collezione) come collezione numerata")
         } else {
             debugPrint("Salvo collezione \(collezione) come collezione")
+            let collection = CollectionMO(context: managedContext)
             setCollection(collection)
         }
 

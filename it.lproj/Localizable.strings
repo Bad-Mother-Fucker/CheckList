@@ -6,8 +6,6 @@
   Copyright © 2019 Michele De Sena. All rights reserved.
 */
 "Series" = "Collezioni";
-"Add a Series" = "Aggiungi una collezione";
-"Use the '+' button to start!" = "Usa il pulsante '+' per cominciare!";
 "New Series" = "Nuova Collezione";
 "Title of the Series" = "Titolo della collezione";
 "Publisher" = "Editore";
@@ -24,7 +22,7 @@
 "Missing" = "Mancanti";
 "Repeated" = "Ripetute";
 "Edit" = "Modifica";
-"Deleate" = "Elimina";
+"Delete" = "Elimina";
 "Do you want to delete this series?" = "Vuoi eliminare questa collezione?";
 "All data relating to it will be permanently removed from the application" = "Tutti i dati ad essa relativa saranno definitivamente rimossi dall'applicazione";
 "Camera" = "Camera";
@@ -32,3 +30,26 @@
 "No Name" = "Senza Nome";
 "Sorry" = "Spiacenti";
 "Currently you can only manage numbered collections in checklist mode. Come back soon for important updates!" = "Al momento puoi gestire solamente collezioni numerate in modalità checklist. Torna presto per importanti aggiornamenti!";
+" of " = " su ";
+" missing" = " mancanti";
+"repetitions" = "ripetuti";
+"BottomPagePdfLine" = "PDF Generato automaticamente tramite Checklist!\nScarica Checklist su iOS App Store\nTelegram: @Micheledes Twitter: @micheledes1296";
+"extensionPrice" = "€ 1,99";
+"PurchaseFeatureDescription" = "Condividi in formato PDF gli elementi mancanti e ripetuti delle tue collezioni";
+"pdfTimestampUpdate" = "Aggiornato al: ";
+"localizedDateFormat" = "dd/MM/yyyy";
+"DidBuyProductAlertTitle" = "Ottimo!";
+"DidBuyProductAlertMessage" = "Acquisto In-App completato con successo.\nGoditi le nuove funzioni!";
+"OKAction" = "Ok";
+"DidCancelPaymentAlertTitle" = "Oh no";
+"DidCancelPaymentAlertMessage" = "Qualcosa è andato storto.\nAndrà meglio la prossima volta!\n";
+"PurchaseAlertControllerTitle" = "Confermi di voler effettuare l'acquisto?";
+"PurchaseAlertControllerMessage" = "Vuoi davvero acquistare questo contenuto per ";
+"PurchaseAlertControllerBuyAction" = "Acquista";
+"CancelAction" = "Annulla";
+"GeneratePDFActionSheetTitle" = "Esporta in PDF";
+"GeneratePDFActionSheetMessage" = "Quale lista vuoi esportare?";
+"infoLabelText" = "Aggiungi una collezione";
+"helperLabelText" = "Tocca il pulsante '+' per cominciare!";
+"screenRecordingHelperLabelText" = "Non è consentito registrare lo schermo in questo momento!";
+"screenReordingInfoLabelText" = "Oh oh";

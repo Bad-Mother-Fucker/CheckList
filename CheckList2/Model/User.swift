@@ -16,4 +16,14 @@ class User: NSObject {
     var nome: String?
     var cognome: String?
     var collezioni: [Collezione] = []
+    var purchasedProducts: [SKProductIdentifier] {
+        return UserDefaults.standard.array(forKey: "purchasedProducts") as? [SKProductIdentifier] ?? []
+    }
+
+    func purchaseProduct(_ identifier: SKProductIdentifier) {
+        var products = purchasedProducts
+        products.append(identifier)
+        UserDefaults.standard.set(products, forKey: "purchasedProducts")
+        UserDefaults.standard.synchronize()
+    }
 }

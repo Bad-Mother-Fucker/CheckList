@@ -171,7 +171,7 @@ public class GTProgressBar: UIView {
     }
     
     @IBInspectable
-    public var labelPositionInt: Int = 0 {
+    public var labelPositionInt: Int = 4 {
         didSet {
             let enumPosition = GTProgressBarLabelPosition(rawValue: labelPositionInt)
             
@@ -288,7 +288,9 @@ public class GTProgressBar: UIView {
             return LabelTopFrameCalculator(progressBar: self)
         case .bottom:
             return LabelBottomFrameCalculator(progressBar: self)
-        default:
+        case .center:
+            return LabelCenterFrameCalculator(progressBar: self)
+        case .left:
             return LabelLeftFrameCalculator(progressBar: self)
         }
     }

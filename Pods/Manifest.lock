@@ -1,16 +1,24 @@
 PODS:
   - GTProgressBar (0.3.2)
+  - PureLayout (3.1.4)
+  - SimplePDF (3.0.0)
 
 DEPENDENCIES:
   - GTProgressBar
+  - PureLayout
+  - SimplePDF
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GTProgressBar
+    - PureLayout
+    - SimplePDF
 
 SPEC CHECKSUMS:
   GTProgressBar: 3aa9731127b3ef193935d450928c3bd0f46bb1c4
+  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
+  SimplePDF: 903143ede36965886997a5c1bc6b8940b082ba20
 
-PODFILE CHECKSUM: 9bdb6fe5c999e7669f230e42c750103c24abdb83
+PODFILE CHECKSUM: d046d734d0c4a8b1f28d51c547747bfba0022a37
 
 COCOAPODS: 1.5.3

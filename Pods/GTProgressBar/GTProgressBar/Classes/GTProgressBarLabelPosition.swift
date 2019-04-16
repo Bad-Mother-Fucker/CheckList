@@ -13,4 +13,5 @@ public enum GTProgressBarLabelPosition: Int {
     case right
     case top
     case bottom
+    case center
 }

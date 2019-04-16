@@ -28,10 +28,10 @@ class CollectionElement: NSObject, NSCopying, NSCoding, NSSecureCoding {
     required init?(coder aDecoder: NSCoder) {
         nome = aDecoder.decodeObject(forKey: "nome") as? String
         rarità = aDecoder.decodeObject(forKey: "rarita") as? String
-        numero = aDecoder.decodeObject(forKey: "numero") as! Int
+        numero = (aDecoder.decodeObject(forKey: "numero") as! Int)
         informazioni = aDecoder.decodeObject(forKey: "informazioni") as? String
         let rawState = aDecoder.decodeInteger(forKey: "stato")
-        stato = MDCollectionItemState(rawValue: rawState) ?? .mancante
+        stato = CLCollectionItemState(rawValue: rawState) ?? .mancante
        
 
         if let fotoData = aDecoder.decodeObject(forKey: "foto") as? Data {
@@ -52,7 +52,7 @@ class CollectionElement: NSObject, NSCopying, NSCoding, NSSecureCoding {
     var numero: Int?
     var informazioni: String?
     var foto: UIImage?
-    var stato: MDCollectionItemState = .mancante
+    var stato: CLCollectionItemState = .mancante
 
     
 
@@ -72,7 +72,7 @@ class CollectionElement: NSObject, NSCopying, NSCoding, NSSecureCoding {
         element.nome = obj.nome
         element.numero = Int(obj.numero)
         element.rarità = obj.rarita
-        element.stato = MDCollectionItemState(rawValue: Int(obj.stato)) ?? .mancante
+        element.stato = CLCollectionItemState(rawValue: Int(obj.stato)) ?? .mancante
     }
 
     override init() {
@@ -88,14 +88,14 @@ class CollectionElement: NSObject, NSCopying, NSCoding, NSSecureCoding {
 }
 
 
-enum MDCollectionItemState: Codable {
+enum CLCollectionItemState: Codable {
     case mancante
     case ripetuto(rep: Int)
     case posseduto
 
 }
 
-extension MDCollectionItemState: RawRepresentable {
+extension CLCollectionItemState: RawRepresentable {
 
     typealias RawValue = Int
 
@@ -119,6 +119,10 @@ extension MDCollectionItemState: RawRepresentable {
         case .ripetuto(rep: let count):
             return count
         }
+    }
+
+    static func ==(lhs: CLCollectionItemState, rhs: CLCollectionItemState) -> Bool {
+        return lhs.rawValue == rhs.rawValue
     }
 
 

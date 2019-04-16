@@ -129,3 +129,38 @@ internal class LabelBottomFrameCalculator: VerticalLabelPositionFrameCalculator 
         return CGPoint(x: 0, y: self.backgroundViewFrame().height + self.insets.top)
     }
 }
+
+internal class LabelCenterFrameCalculator: VerticalLabelPositionFrameCalculator {
+    let hasLabel: Bool
+    let parentFrame: CGRect
+    let barMaxHeight: CGFloat?
+    let barMaxWidth: CGFloat?
+    let insets: UIEdgeInsets
+    let font: UIFont
+    let barBorderWidth: CGFloat
+    let barFillInset: CGFloat
+    let orientation: GTProgressBarOrientation
+    let direction: GTProgressBarDirection
+
+    public init(progressBar: GTProgressBar) {
+        self.hasLabel = progressBar.displayLabel
+        self.barMaxHeight = progressBar.barMaxHeight
+        self.barMaxWidth = progressBar.barMaxWidth
+        self.parentFrame = progressBar.frame
+        self.insets = progressBar.progressLabelInsets
+        self.font = progressBar.font
+        self.barBorderWidth = progressBar.barBorderWidth
+        self.barFillInset = progressBar.barFillInset
+        self.orientation = progressBar.orientation
+        self.direction = progressBar.direction
+    }
+
+    func backgroundViewOrigin() -> CGPoint {
+        return CGPoint.zero
+    }
+
+    func labelOrigin() -> CGPoint {
+        print("centering")
+        return CGPoint(x: self.backgroundViewFrame().width/2, y: self.backgroundViewFrame().height/2 + self.insets.top)
+    }
+}

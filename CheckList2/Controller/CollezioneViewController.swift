@@ -24,5 +24,8 @@ class CollezioneViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
 
 }

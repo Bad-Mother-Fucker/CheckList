@@ -10,14 +10,13 @@ import UIKit
 
 class CollezioniViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    let infoLabel = UILabel(forAutoLayout: ())
+    let helperLabel = UILabel(forAutoLayout: ())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = true
+        setNavigationBar()
         addObservers()
-       
 
     }
 
@@ -27,43 +26,96 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
 
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.largeTitleTextAttributes =
-            [.font: UIFont.boldSystemFont(ofSize: fontSize)]
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
         super.viewWillAppear(animated)
 
         DataManager.shared.fetchCollections(withPredicate: nil) { (results, error) in
             guard error == nil else { debugPrint(error!.localizedDescription); return }
             User.shared.collezioni = results
         }
-        adjustLargeTitleSize()
-
         collezioniTableView.reloadData()
-        if User.shared.collezioni.count == 0 {
+        if User.shared.collezioni.isEmpty {
             collezioniTableView.isHidden = true
+            setHelperView()
+
         } else {
             collezioniTableView.isHidden = false
+            removeHelperView()
         }
 
     }
 
     var tappedIndex: Int?
-    let fontSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
+
+    
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+
+    private func removeHelperView() {
+        helperLabel.removeFromSuperview()
+        infoLabel.removeFromSuperview()
+    }
+
+    private func setHelperView() {
+        infoLabel.text = NSLocalizedString("infoLabelText", comment: "")
+        infoLabel.font = .systemFont(ofSize: 22, weight: .medium)
+        helperLabel.text = NSLocalizedString("helperLabelText", comment: "")
+        helperLabel.font = .systemFont(ofSize: 14)
+        helperLabel.textColor = .lightGray
+
+        view.addSubview(infoLabel)
+        view.addSubview(helperLabel)
+
+        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        helperLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -30).isActive = true
+        helperLabel.topAnchor.constraint(equalTo: infoLabel.bottomAnchor).isActive = true
+        helperLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        helperLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+
+        view.sendSubviewToBack(helperLabel)
+        view.sendSubviewToBack(infoLabel)
+    }
 
 
-    func addObservers() {
+    private func setNavigationBar() {
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.mainAppColor]
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
+
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "buttonAdd")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(nuovaCollezioneSegue), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+
+
+    private func addObservers() {
         NotificationCenter.default.addObserver(forName: CLNotificationNames.collectionUpdated, object: nil, queue: .main) { [weak self] (_) in
             self?.collezioniTableView.reloadData()
             self?.collezioniTableView.isUserInteractionEnabled = true
         }
     }
 
-    
-    // MARK: Outlets
+
+    @objc func nuovaCollezioneSegue() {
+        performSegue(withIdentifier: "nuovaCollezioneSegue", sender: self)
+    }
+
 
     @IBOutlet weak var collezioniTableView: UITableView! {
         didSet {
             collezioniTableView.delegate = self
             collezioniTableView.dataSource = self
+            collezioniTableView.contentInset.top = 20
+            collezioniTableView.scrollIndicatorInsets.top = 20
+            
         }
     }
 
@@ -88,7 +140,7 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: Delegate and Datasource methods
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 361
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +149,7 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionTableViewCell", for: indexPath) as? CollezioniTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionTableViewCellBig", for: indexPath) as? CollezioniTableViewCell else {
             return UITableViewCell()
         }
         cell.setCell(for: User.shared.collezioni[indexPath.row])
@@ -125,18 +177,19 @@ class CollezioniViewController: UIViewController, UITableViewDataSource, UITable
 
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Deleate", comment: "")) {
+        let delete = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Delete", comment: "")) {
             (action, indexPath) in
 
             let alert = UIAlertController(title: NSLocalizedString("Do you want to delete this series?", comment: ""),
                                           message: NSLocalizedString("All data relating to it will be permanently removed from the application", comment: ""),
                                           preferredStyle: .actionSheet)
-            let elimina = UIAlertAction(title: NSLocalizedString("Deleate", comment: ""), style: .destructive, handler: { (_) in
+            let elimina = UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: .destructive, handler: { (_) in
                 DataManager.shared.deleteCollection(User.shared.collezioni[indexPath.row])
                 User.shared.collezioni.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 if User.shared.collezioni.count == 0 {
                     tableView.isHidden = true
+                    self.setHelperView()
                 }
             })
             let annulla = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (_) in

@@ -6,15 +6,15 @@
   Copyright © 2019 Michele De Sena. All rights reserved.
 */
 "Series" = "Series";
-"Add a Series" = "Add a Series";
-"Use the '+' button to start!" = "Use the '+' button to start!";
+"infoLabelText" = "Add a Series";
+"helperLabelText" = "Use the '+' button to start!";
 "New Series" = "New Series";
 "Title of the Series" = "Title of the Series";
 "Publisher" = "Publisher";
 "Numbered series" = "Numbered series";
 "Cancel" = "Cancel";
 "Save" = "Save";
-"The series consists of a finite number of elements, each of which is uniquely identified by a number. Indicate below the number of items in your collection." = "The collection consists of a finite number of elements, each of which is uniquely identified by a number. Indicate below the number of items in your collection.";
+"The series consists of a finite number of elements, each of which is uniquely identified by a number. Indicate below the number of items in your collection." = "The series consists of a finite number of elements, each one is uniquely identified by a number. Indicate below the number of items in your collection.";
 "Checklist mode" = "Checklist mode";
 "The checklist mode offers the possibility to select the numbers of the elements of the series that you have, automatically taking into account those missing and repeated, ignoring further information on collectables." = "The checklist mode offers the possibility to select the numbers of the elements of the series that you have, automatically taking into account those missing and repeated, ignoring further information on collectables.";
 "Enter a name" = "Enter a name";
@@ -24,7 +24,7 @@
 "Missing" = "Missing";
 "Repeated" = "Repeated";
 "Edit" = "Edit";
-"Deleate" = "Deleate";
+"Delete" = "Delete";
 "Do you want to delete this series?" = "Do you want to delete this series?";
 "All data relating to it will be permanently removed from the application" = "All data relating to it will be permanently removed from the application";
 "Camera" = "Camera";
@@ -32,3 +32,25 @@
 "No Name" = "No Name";
 "Sorry" = "Sorry";
 "Currently you can only manage numbered collections in checklist mode. Come back soon for important updates!" = "Currently you can only manage numbered collections in checklist mode. Come back soon for important updates!";
+"repetitions" = "repetitions";
+
+"BottomPagePdfLine" = "PDF automatically generated via Checklist!\nDownload Checklist on iOS App Store\nTelegram: @Micheledes Twitter: @micheledes1296";
+"extensionPrice" = "$ 2,25";
+"PurchaseFeatureDescription" = "Share your lists in PDF Format";
+"pdfTimestampUpdate" = "Last update: ";
+"localizedDateFormat" = "MM/dd/yyyy";
+"DidBuyProductAlertTitle" = "Wonderful!";
+"DidBuyProductAlertMessage" = "In-App purchase successfully completed. Enjoy the new features!";
+"OKAction" = "Ok";
+"DidCancelPaymentAlertTitle" = "Oh no!";
+"DidCancelPaymentAlertMessage" = "Something went wrong.\nNext time it will be better.";
+"PurchaseAlertControllerTitle" = "Purchase item";
+"PurchaseAlertControllerMessage" = "Do you really want to purchase this item for  ";
+"PurchaseAlertControllerBuyAction" = "Buy";
+"CancelAction" = "Cancel";
+"GeneratePDFActionSheetTitle" = "Export PDF";
+"GeneratePDFActionSheetMessage" = "Which list do you want to export?";
+"infoLabelText" = "Add a series";
+"helperLabelText" = "Tap on '+' to begin!";
+"screenRecordingHelperLabelText" = "Screen recording is not allowed in this area!";
+"screenReordingInfoLabelText" = "Oh oh";

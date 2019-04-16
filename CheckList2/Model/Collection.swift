@@ -26,6 +26,19 @@ class Collezione : NSObject {
     var collezionabili: [CollectionElement] = []
     var foto: UIImage?
 
+    var repNumber: Int {
+        var repCount = 0
+        collezionabili.forEach({
+            switch $0.stato {
+            case .ripetuto(rep: let rep):
+                repCount += (rep - 1)
+            default:
+                break
+            }
+        })
+        return repCount
+    }
+
     init(nome: String, editore: String) {
 
         self.nome = nome
@@ -71,7 +84,8 @@ class CollezioneNumerata: Collezione {
         return CGFloat(numeroPosseduti)/CGFloat(numeroElementi)
     }
 
-    init(nome: String, editore: String, numeroElementi: Int,uuid: String = Date.stringTimeStamp()) {
+    init(nome: String, editore: String, numeroElementi: Int,uuid: String = Date.uniqueTimestamp()) {
+
         self.numeroElementi = numeroElementi
         super.init(nome: nome, editore: editore)
         for x in 1...numeroElementi {

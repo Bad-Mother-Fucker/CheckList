@@ -27,14 +27,25 @@ class NuovaCollezioneViewController: UIViewController {
         artwork.isUserInteractionEnabled = true
         rootView.addGestureRecognizer(keyboardTap)
         // Do any additional setup after loading the view.
+        sliderNumeri.tintColor = .mainAppColor
         setForDemoMode()
+        
 
     }
 
 
     func setEditor() {
 
-        artwork?.image = collezione?.foto ?? UIImage(named: "picture")
+        artwork?.image = collezione?.foto ?? UIImage(named: "addPhoto")?.withRenderingMode(.alwaysOriginal)
+        if collezione?.foto != nil {
+            artwork.heightAnchor.constraint(equalToConstant: 228).isActive = true
+            artwork.contentMode = .scaleToFill
+            if let constraint = artwork.constraints.reference(forID: "addPhotoHeightConstraint") {
+                constraint.constant = 228
+            }
+        }
+        title = NSLocalizedString("editCollectionTitle", comment: "")
+        collectionImage = collezione?.foto
         editoreTextField?.text = collezione?.editore
         titoloTextfield?.text = collezione?.nome
         if let cn = collezione as? CollezioneNumerata {
@@ -48,6 +59,7 @@ class NuovaCollezioneViewController: UIViewController {
             hiddenViews?.forEach { (view) in
                 view.isHidden = false
             }
+            artwork.image = collezione?.foto
             checklistSwitch?.setOn(cn.isChecklistMode, animated: true)
         }
     }
@@ -56,6 +68,7 @@ class NuovaCollezioneViewController: UIViewController {
     @IBOutlet weak var checklistSwitch: UISwitch! {
         didSet {
             checklistSwitch.setOn(false, animated: false)
+            checklistSwitch.onTintColor = .secondaryAppColor
         }
     }
 
@@ -69,6 +82,7 @@ class NuovaCollezioneViewController: UIViewController {
     @IBOutlet weak var numerataSwitch: UISwitch! {
         didSet {
             numerataSwitch.setOn(false, animated: false)
+            numerataSwitch.onTintColor = .secondaryAppColor
         }
     }
 
@@ -127,7 +141,7 @@ class NuovaCollezioneViewController: UIViewController {
     @IBOutlet weak var artwork: UIImageView! {
         didSet {
             artwork.contentMode = .scaleAspectFit
-            artwork.image = UIImage(named: "picture")
+            artwork.image =  UIImage(named: "addPhoto")?.withRenderingMode(.alwaysOriginal)
         }
     }
 
@@ -149,6 +163,11 @@ class NuovaCollezioneViewController: UIViewController {
         didSet {
             editoreTextField.delegate = self
         }
+    }
+
+
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
     }
 
 
@@ -199,7 +218,8 @@ class NuovaCollezioneViewController: UIViewController {
 
         guard collezione == nil else {
             if let cn = collezione as? CollezioneNumerata {
-                let coll = CollezioneNumerata(nome: titoloTextfield.text ?? "", editore: editoreTextField.text ?? "", numeroElementi: Int(sliderNumeri.value))
+                let numeroElementi = Int(sliderNumeri.value) > 1 ? Int(sliderNumeri.value) : 1
+                let coll = CollezioneNumerata(nome: titoloTextfield.text ?? "", editore: editoreTextField.text ?? "", numeroElementi: numeroElementi)
                 coll.foto = collectionImage ?? UIImage(named: "default collection")
                 
                 if coll.numeroElementi > cn.numeroElementi  {
@@ -262,21 +282,48 @@ class NuovaCollezioneViewController: UIViewController {
         hiddenViews.forEach { $0.isHidden = false }
         numerataSwitch.setOn(true, animated: false)
         checklistSwitch.setOn(true, animated: false)
-
     }
 
 }
 
 
-extension NuovaCollezioneViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            debugPrint(pickedImage)
-            picker.dismiss(animated: true, completion: nil)
-            artwork.image = pickedImage
-            collectionImage = pickedImage
+extension NuovaCollezioneViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, AsokeDelegate {
+
+    func didFinishCroppingImage(_ croppedImage: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        artwork.image = croppedImage
+        collectionImage = croppedImage
+        artwork.heightAnchor.constraint(equalToConstant: 228).isActive = true
+        artwork.contentMode = .scaleToFill
+        if let constraint = artwork.constraints.reference(forID: "addPhotoHeightConstraint") {
+            constraint.constant = 228
         }
     }
+
+    func didFailWithError(_ error: NSError) {
+        print(error.localizedDescription)
+    }
+
+    func cancelButtonWasPressed() {
+        
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
+            let cropFrame = CGRect(x: artwork.frame.minX, y: view.frame.midY - artwork.frame.height / 2, width: artwork.frame.width, height: artwork.frame.height)
+            let vc = AsokeRectangularVC(croppingRect: cropFrame, withImageToCrop: pickedImage)
+
+            vc.delegate = self
+            picker.present(vc, animated: true, completion: nil)
+        }
+
+
+    }
+
+
+
+
 }
 
 extension NuovaCollezioneViewController: UITextFieldDelegate {
@@ -308,35 +355,5 @@ extension NuovaCollezioneViewController: UITextFieldDelegate {
     }
 
 
-
 }
 
-
-
-
-
-
-extension UIView {
-    func fadeIn() {
-        self.isHidden = false
-        self.alpha = 0
-        UIView.animate(withDuration: 0.5) {
-            self.alpha = 1
-        }
-    }
-
-    func fadeOut() {
-        UIView.animate(withDuration: 0.5) {
-            self.alpha = 0
-        }
-    }
-}
-
-
-extension Date {
-    static func stringTimeStamp() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yy hh:mm:ss"
-        return formatter.string(from: self.init())
-    }
-}
